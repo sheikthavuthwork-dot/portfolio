@@ -9,27 +9,29 @@ function App() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const fname = e.target.fname.value.trim();
-    const lname = e.target.lname.value.trim();
-    const email = e.target.email.value.trim();
-    const subject = e.target.subject.value.trim();
-    const message = e.target.message.value.trim();
+  const fname = e.target.fname.value.trim();
+  const lname = e.target.lname.value.trim();
+  const email = e.target.email.value.trim();
+  const subject = e.target.subject.value.trim();
+  const message = e.target.message.value.trim(); 
 
-    if (!fname || !lname || !email || !subject || !message) {
-      toast.error("Please fill all required fields!");
-      return;
-    }
+  if (!fname || !lname || !email || !subject || !message) {
+    toast.error("Please fill all required fields!");
+    return;
+  }
 
-    if (!email.includes("@") || !email.includes(".")) {
-      toast.error("Enter a valid email address!");
-      return;
-    }
+  if (!email.includes("@") || !email.includes(".")) {
+    toast.error("Enter a valid email address!");
+    return;
+  }
 
-    toast.success("Message Sent Successfully!");
-    e.target.reset();
-  };
+  toast.success("Message Sent Successfully!");
+  e.target.reset();
+};
+
+
 
   return (
     <>
@@ -61,7 +63,7 @@ function App() {
             Hey I'm <span className="highlight">Sheik Thavuth</span>
           </h1>
           <h2>
-            I'm a <span className="highlight">Full Stack Developer</span>
+            I'm a <span className="highlight">Full Stack Web Developer</span>
           </h2>
 
           <p>
@@ -101,7 +103,7 @@ function App() {
       <h2>Hello You</h2>
 
       <h4 className="sub-heading">
-        MY NAME IS SHEIK THAVUTH & I’M A FULL STACK DEVELOPER.
+        MY NAME IS SHEIK THAVUTH & I’M A FULL STACK WEB DEVELOPER.
       </h4>
 
       <p>
@@ -120,7 +122,7 @@ function App() {
         possible.
       </p>
 
-      {/* 🔥 Added Education Section */}
+      
       <div className="education">
         <h3>Education</h3>
 
@@ -210,7 +212,7 @@ function App() {
         <div className="projects-container">
 
           <a
-            href="YOUR_TODO_APP_LINK"
+            href="https://to-do-list-indol-nu.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="project-card"
@@ -231,7 +233,7 @@ function App() {
           </a>
 
           <a
-            href="YOUR_CURRENCY_CONVERTER_LINK"
+            href="https://currency-converter-theta-ashen.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="project-card"
@@ -252,7 +254,7 @@ function App() {
           </a>
 
           <a
-            href="YOUR_WEATHER_APP_LINK"
+            href="https://weather-app-eight-iota-47.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="project-card"
@@ -273,7 +275,7 @@ function App() {
           </a>
 
           <a
-            href="YOUR_BAKERY_APP_LINK"
+            href="https://sk-backery.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="project-card"
@@ -380,7 +382,7 @@ function App() {
               </button>
             </form>
 
-            <ToastContainer position="top-right" autoClose={2000} />
+            <ToastContainer position="top-right" autoClose={5000} />
           </div>
         </div>
       </section>
