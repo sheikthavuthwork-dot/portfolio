@@ -90,8 +90,14 @@ function App() {
             </a>
           </div>
 
-          <a href="/Sheik-Thavuth-Resume.pdf" download>
-            <button className="download-btn">Download CV</button>
+          <a 
+            href="/Sheik-Thavuth-Resume (1).pdf" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="download-btn"
+            onClick={() => toast.success("Downloaded Successfully!")}
+          >
+            Download CV
           </a>
         </div>
       </section>
