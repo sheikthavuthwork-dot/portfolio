@@ -2,6 +2,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import image from "./aboutimage.png";
+import emailjs from "emailjs-com";
 
 function App() {
   const handleclick = () => {
@@ -9,27 +10,44 @@ function App() {
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const fname = e.target.fname.value.trim();
-  const lname = e.target.lname.value.trim();
-  const email = e.target.email.value.trim();
-  const subject = e.target.subject.value.trim();
-  const message = e.target.message.value.trim(); 
+    const fname = e.target.fname.value.trim();
+    const lname = e.target.lname.value.trim();
+    const email = e.target.email.value.trim();
+    const subject = e.target.subject.value.trim();
+    const message = e.target.message.value.trim(); 
 
-  if (!fname || !lname || !email || !subject || !message) {
-    toast.error("Please fill all required fields!");
-    return;
-  }
+    if (!fname || !lname || !email || !subject || !message) {
+      toast.error("Please fill all required fields!");
+      return;
+    }
 
-  if (!email.includes("@") || !email.includes(".")) {
-    toast.error("Enter a valid email address!");
-    return;
-  }
+    if (!email.includes("@") || !email.includes(".")) {
+      toast.error("Enter a valid email address!");
+      return;
+    }
 
-  toast.success("Message Sent Successfully!");
-  e.target.reset();
-};
+    toast.success("Message Sent Successfully!");
+    e.target.reset();
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_30697iz",
+      "template_9jiu42p",
+      e.target,
+      "QgWP3tmOb7IvucbxB"
+    ).then(
+      () => {
+        toast.success("Message sent successfully!");
+        e.target.reset();
+      },
+      () => toast.error("Failed to send message!")
+    );
+  };
 
 
 
@@ -312,7 +330,7 @@ function App() {
             <p className="contact-label">CONTACT</p>
             <h1 className="contact-title">
               Let’s make something <br /> great together
-            </h1 >
+            </h1>
             <p className="contact-desc">
               Feel free to reach out for collaborations or inquiries.
             </p>
@@ -341,7 +359,7 @@ function App() {
           </div>
 
           <div className="contact-card">
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form className="contact-form" onSubmit={sendEmail}>
               <div className="form-row">
                 <div>
                   <label>First Name</label>
